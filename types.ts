@@ -24,28 +24,27 @@ export interface AppSettings {
 
 export interface PrintSettings {
   paperSize: 'A4' | 'A5' | 'Note'; // Note is for small spiral notebook
-  layout: 'list' | 'grid-2' | 'grid-4'; // tasks per page or days per page
-  daysPerPage: number;
+  daysPerPage: 1 | 2 | 4; // Distinct from layout style
+  
+  // Content Options
   showDate: boolean;
   showDayName: boolean;
   showNotesArea: boolean;
+  showPrayers: boolean;
+  showFasting: boolean;
+  showScoreBox: boolean; // New: Box for grading the day
   
-  // Factory Options
+  // Factory/Structure Options
   spiralMargin: boolean; 
   spiralPosition: 'top' | 'right' | 'left';
   marginSize: number; // in mm
-  
-  // Islamic Additions
-  showPrayers: boolean;
-  showFasting: boolean;
-  
-  // Customization
   extraLines: number; // Add empty lines for user to write
-  taskLayout: 'simple' | 'table'; // Render tasks as list or table with columns
-  showDayCompletion: boolean; // New: Checkbox for whole day
   
-  // Visuals & Typography
-  theme: 'modern' | 'minimal' | 'islamic' | 'geometric' | 'professional' | 'creative';
+  // The Core Look
+  taskStyle: 'simple' | 'dual' | 'table'; // simple list, study/solve check, or full table
+  theme: 'modern' | 'minimal' | 'islamic' | 'geometric' | 'professional' | 'creative' | 'emergency';
+  
+  // Typography
   fontSize: 'small' | 'medium' | 'large';
   fontStyle: 'cairo' | 'amiri' | 'tajawal';
   density: 'compact' | 'comfortable' | 'spacious';
